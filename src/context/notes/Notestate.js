@@ -12,7 +12,7 @@ const NoteState = (props) => {
     //get all notes
     const getnotes = useCallback(async () => {
         //TODO Api call
-        const response = await fetch(`${API_BASE_URL}/api/notes/fetchallnotes`, {
+        await fetch(`${API_BASE_URL}/api/notes/fetchallnotes`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     const addnote = async (title, description, tag) => {
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/notes/addnote`, {
+            await fetch(`${API_BASE_URL}/api/notes/addnote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const NoteState = (props) => {
     //Delete a note
     const deletenote = async (id) => {
         //TODO Api call
-        const response = await fetch(`${API_BASE_URL}/api/notes/deletenote/${id}`, {
+        await fetch(`${API_BASE_URL}/api/notes/deletenote/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -70,7 +70,7 @@ const NoteState = (props) => {
     //Edit a note
     const editnote = async (id, title, description, tag) => {
         //TODO Api call
-        const response = await fetch(`${API_BASE_URL}/api/notes/updatenote/${id}`, {
+        await fetch(`${API_BASE_URL}/api/notes/updatenote/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
