@@ -1,4 +1,3 @@
-const apiHost = window.location.hostname || "localhost";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL || `https://inotebook-backend-htnv.onrender.com`;

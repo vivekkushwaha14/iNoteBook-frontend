@@ -12,7 +12,7 @@ const NoteState = (props) => {
     //get all notes
     const getnotes = useCallback(async () => {
         //TODO Api call
-        await fetch(`${API_BASE_URL}/api/notes/fetchallnotes`, {
+       const response = await fetch(`${API_BASE_URL}/api/notes/fetchallnotes`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     const addnote = async (title, description, tag) => {
 
         try {
-            await fetch(`${API_BASE_URL}/api/notes/addnote`, {
+            const response = await fetch(`${API_BASE_URL}/api/notes/addnote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const NoteState = (props) => {
     //Delete a note
     const deletenote = async (id) => {
         //TODO Api call
-        await fetch(`${API_BASE_URL}/api/notes/deletenote/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/notes/deletenote/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
