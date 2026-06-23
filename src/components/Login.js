@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const Login = (props) => {
     const [credentials, setcredentials] = useState({ email: "", password: "" })
     const [loading, setLoading] = useState(false);
+    const [error, seterror] = useState("");
     let navigate = useNavigate();
     const handlesubmit = async (e) => {
         e.preventDefault()
@@ -29,7 +30,9 @@ const Login = (props) => {
                 toast.success("Login successful");
                 navigate("/");
             }
-            else {toast.error("Login failed");
+            else {
+                seterror(json.error || json.message || "Login failed");
+                toast.error(json.error || json.message ||"Login failed");
             }
 
 
@@ -89,6 +92,7 @@ const Login = (props) => {
                             required
                         />
                     </div>
+                    {error && <p className="text-sm text-red-500">{error}</p>}
 
                     <button type="submit" disabled={loading} className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
                         {loading ? "Logging in..." : "Log in"}
